@@ -16,3 +16,7 @@
 $router->get('/', function () use ($router) {
     return $router->app->version();
 });
+
+$router->post('/jsonrpc', function (\Illuminate\Http\Request $request, \App\Servers\JsonRpcServer $jsonRpcServer) {
+    return $jsonRpcServer->handle($request);
+});
